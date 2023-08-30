@@ -8,7 +8,7 @@ app.use(express.json());
 
 
 app.use(require("./routes/user.route"));
-// app.use(require("./routes/news.route"));
+app.use(require("./routes/news.route"));
 
 const PORT = process.env.PORT || 4444
 

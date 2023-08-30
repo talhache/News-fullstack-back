@@ -4,9 +4,8 @@ const { newsController } = require('../controllers/news.controller');
 const { addNewsValidator } = require ('../validation/news');
 const { checkAuth } = require('../middlewares/authCheck');
 
-// router.post('/registration', registerValidator, usersController.registration);
+router.post('/addNews', checkAuth, addNewsValidator, newsController.addNews);
 // router.post('/login', registerValidator, usersController.login);
 // router.get('/Mypage', registerValidator, checkAuth, usersController.MyPage);
-
 
 module.exports = router;
