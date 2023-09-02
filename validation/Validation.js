@@ -12,3 +12,10 @@ module.exports.loginValidator =[
     body('avatarUrl', 'неверная ссылка').optional().isURL(),
 ];
 
+module.exports.addNewsValidator =[
+    body('title', 'Введите заголовок новости').isLength({ min:3 }).isString(),
+    body('text', 'Опишите новость').isLength({ min: 3 }).isString(),
+    body('tags', 'неверный формат тегов(укажите массив)').optional().isString(),
+    body('imageUrl', 'неверная ссылка на изображение').optional().isString(),
+];
+

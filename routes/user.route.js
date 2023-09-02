@@ -1,8 +1,10 @@
-const { Router } = require('express');
+const { Router, json } = require('express');
 const router = Router();
+const multer = require('multer');
 const { usersController } = require('../controllers/user.controller');
-const { registerValidator, loginValidator } = require ('../validation/auth');
+const { registerValidator, loginValidator } = require ('../validation/Validation');
 const { checkAuth } = require('../middlewares/authCheck');
+
 
 router.post('/registration', registerValidator, usersController.registration);
 router.post('/login', loginValidator, usersController.login);

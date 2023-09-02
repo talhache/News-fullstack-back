@@ -5,12 +5,16 @@ const newsSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    categories: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "Category"
+    },
     text: {
         type: String,
         required: true,
     },   
-    categories: {
-        type: String,
+    tags: {
+        type: Array,
         default: [],
     },
     viewsCount: {
@@ -19,10 +23,10 @@ const newsSchema = mongoose.Schema({
     },
     user: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'User',
+        ref: 'User', 
         required: true,
     },
-    imageUrl: String,
+    image:[String],
 
 }, {
     timestamps: true
