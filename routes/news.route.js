@@ -20,6 +20,7 @@ router.post('/upload', checkAuth, upload.single('image'), (req, res) => { res.js
 
 router.post('/addNews', checkAuth, addNewsValidator, newsController.addNews);
 router.get('/News', newsController.getNews);
+router.get('/News/tags', newsController.getLastTags);
 router.get('/News/:id', newsController.getOneNews);
 router.delete('/News/:id', checkAuth, newsController.deleteNews);
 router.patch('/News/:id', checkAuth, addNewsValidator, newsController.changeNews);

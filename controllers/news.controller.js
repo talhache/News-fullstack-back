@@ -28,8 +28,21 @@ module.exports.newsController = {
     getNews: async (req, res) => {
         try {
             const news = await News.find()
-                .populate('user')
+                .populate('user').exec();
             res.json(news)
+        } catch (err) {
+            console.log(err)
+            res.status(500).json({
+                message: "Не удалось получить новости"
+            })
+        }
+    },
+
+    getLastTags: async (req, res) => {
+        try {
+            const news = await News.find().limit(5).exec();
+            const tags = news.map(item => item.tags).flat().slice(0, 5);
+            res.json(tags);
         } catch (err) {
             console.log(err)
             res.status(500).json({
