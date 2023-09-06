@@ -11,4 +11,4 @@ router.post('/login', loginValidator, usersController.login);
 router.get('/Mypage', checkAuth, usersController.MyPage);
 
 
-module.exports = router;
+module.exports = router; 

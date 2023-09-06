@@ -19,9 +19,9 @@ module.exports.usersController = {
                 login: login,
                 password: hash,
                 avatarUrl: avatarUrl,
-            });
+            }); 
 
-            const token = await jwt.sign({
+            const token = await jwt.sign({ 
                 _id: users._id
             },
                 process.env.SECRET_JWT_KEY,
@@ -38,7 +38,7 @@ module.exports.usersController = {
         } catch (error) {
             console.log(error)
             res.status(500).json({
-                message: "Не удалось зарегестрироваться"
+                message: "Не удалось зарегестрироваться" 
             });
         }
     },
